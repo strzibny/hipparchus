@@ -1,0 +1,14 @@
+[Unit]
+Description=Hipparchus - Cache responces from Google Maps API
+Requires=redis.service
+After=redis.service
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/hipparchus -b 0.0.0.0 -p 3999 -e production
+TimeoutSec=15
+Restart=always
+KillMode=process
+
+[Install]
+WantedBy=multi-user.target

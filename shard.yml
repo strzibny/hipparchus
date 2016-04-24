@@ -1,0 +1,12 @@
+name: hipparchus
+version: 0.1
+
+dependencies:
+  redis:
+    github: stefanwille/crystal-redis
+    version: ~> 1.5.1
+  kemal:
+    github: sdogruyol/kemal
+  mocks:
+    github: waterlink/mocks.cr
+    version: 0.9.1
