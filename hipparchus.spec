@@ -17,6 +17,7 @@ URL: https://github.com/strzibny/hipparchus
 Source0: hipparchus
 Source1: hipparchus.service
 Source2: LICENSE
+Source3: README.md
 Requires: redis
 Requires(post):   systemd
 Requires(preun):  systemd
@@ -38,9 +39,10 @@ install -m 0755 %{SOURCE0} %{buildroot}%{_bindir}
 mkdir -p %{buildroot}%{_unitdir}
 install -m 0644 %SOURCE1 %{buildroot}%{_unitdir}
 
-# license file
+# license and README.md file
 mkdir -p %{buildroot}%{_defaultdocdir}/hipparchus
 install -m 0444 %SOURCE2 %{buildroot}%{_defaultdocdir}/hipparchus
+install -m 0444 %SOURCE3 %{buildroot}%{_defaultdocdir}/hipparchus
 
 %post
 %systemd_post hipparchus.service
@@ -55,6 +57,7 @@ install -m 0444 %SOURCE2 %{buildroot}%{_defaultdocdir}/hipparchus
 %{_bindir}/*
 %{_unitdir}/hipparchus.service
 %doc %{_defaultdocdir}/hipparchus/LICENSE
+%doc %{_defaultdocdir}/hipparchus/README.md
 
 %changelog
 * Mon Apr 18 2016 Josef Strzibny <strzibny@strzibny.name> - 0.1-1
