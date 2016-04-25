@@ -1,9 +1,13 @@
 require "kemal"
 require "json"
+require "logger"
 require "redis"
 require "./hipparchus/google_maps_api.cr"
 
+log = Logger.new(STDOUT)
+log.level = Logger::INFO
 redis = Redis.new
+log.info("Connected to Redis")
 
 get "/:address" do |env|
   address = env.params.url["address"].downcase
@@ -23,6 +27,7 @@ get "/:address" do |env|
       redis.set("coordinates:#{address}", location.to_json)
       response = { location: location }
     rescue ex : Hipparchus::GoogleMapsApi::Client::ServerError
+      log.info("GoogleMapsApi::Client::ServerError for address #{address}: #{ex.message}")
       response = { error: ex.message }
     end
   end
