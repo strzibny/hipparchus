@@ -13,7 +13,7 @@ require 'net/http'
 require 'json'
 
 location = 'Opava'
-uri = URI.parse("http://0.0.0.0:3999/#{location}")
+uri = URI.parse("http://127.0.0.1:3999/#{location}")
 http = Net::HTTP.new(uri.host, uri.port)
 request = Net::HTTP::Get.new(uri.request_uri)
 response = http.request(request)
