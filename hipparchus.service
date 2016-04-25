@@ -5,7 +5,7 @@ After=redis.service
 
 [Service]
 Type=simple
-ExecStart=/usr/bin/hipparchus -b 0.0.0.0 -p 3999 -e production
+ExecStart=/usr/bin/hipparchus -b 127.0.0.1 -p 3999 -e production
 TimeoutSec=15
 Restart=always
 KillMode=process
