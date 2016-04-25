@@ -50,9 +50,9 @@ $ ./hipparchus -b 127.0.0.1 -p 3999 -e production
 
 ### Quering the API
 
-The get the latitude and longitude of a given `ADDRESS`, query `HOST:PORT/ADDRESS`.
+To get the latitude and longitude of a given `ADDRESS`, query `HOST:PORT/ADDRESS`.
 
-Hipparchus returns succesfull response as a following JSON:
+Hipparchus returns a successful response as a following JSON:
 
 ```
 { "location": { "lat": 49.9407, "lng": 17.8948 } }
@@ -63,6 +63,16 @@ or:
 ```
 
 See the `examples/` folder to see client usecases.
+
+### Redis store
+
+Every geolocation request gets saved to Redis under a following key:
+
+```
+coordinates:ADDRESS
+```
+
+`ADDRESS` is always lowercase to avoid case-sensitive duplicates. The saved string is a JSON containing latitude/longitude pair as `lat` and `lon` fields.
 
 ## Development
 

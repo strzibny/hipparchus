@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 # Hipparchus minimal Ruby example for geocoding 'Opava'
 #
-# Parse a succesfull response from Hipparchus in format of:
+# Parse a successful response from Hipparchus in format of:
 #
 #   { "location": { "lat": 49.9407, "lng": 17.8948 } }
 #
